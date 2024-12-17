@@ -1,0 +1,1051 @@
+<html><head><base href="/" /><title>מחשבון ריבית דריבית - קופת גמל להשקעה</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face {
+    font-family: 'Heebo';
+    src: url('https://fonts.gstatic.com/s/heebo/v21/NGSpv5_NC0k9P_v6ZUCbLRAHxK1EiSysd0mm_00.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('https://fonts.gstatic.com/s/heebo/v21/NGSpv5_NC0k9P_v6ZUCbLRAHxK1ECSysd0mm_00.woff2') format('woff2');
+    font-weight: 700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Heebo', sans-serif;
+    direction: rtl;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #eef2f7 50%, #e8eef5 100%);
+    animation: gradientBG 20s ease infinite;
+    background-size: 400% 400%;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.logo-container {
+    max-width: 150px;
+    margin: 0 auto 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transform: translateY(0);
+    transition: all 0.3s ease;
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.logo-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.calculator-container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 10px 30px rgba(66, 133, 244, 0.08),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    padding: 3.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.calculator-container:hover {
+    transform: translateY(-5px);
+}
+
+h1 {
+    background: linear-gradient(45deg, #1a73e8, #4285f4, #34a853, #fbbc05, #ea4335);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGradient 8s ease infinite;
+    background-size: 400% 400%;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 2.4rem;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 4px rgba(26, 115, 232, 0.1);
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+}
+
+@keyframes titleGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.input-group {
+    margin-bottom: 2.5rem;
+    position: relative;
+    transition: all 0.4s ease;
+    padding: 1rem;
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(248,250,252,0.9));
+    border: 1px solid rgba(66, 133, 244, 0.1);
+}
+
+.input-group:hover {
+    transform: translateX(-5px) translateY(-2px);
+    box-shadow: 0 10px 20px rgba(66, 133, 244, 0.08);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+    font-weight: 500;
+    font-size: 1.1rem;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    background: linear-gradient(145deg, #ffffff, #f8fafd);
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.05),
+        0 2px 4px rgba(255, 255, 255, 0.9);
+    border: 2px solid #e8eef5;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[type="number"]:focus {
+    transform: scale(1.02);
+    border-color: #4285f4;
+    box-shadow: 0 0 0 4px rgba(66, 133, 244, 0.15);
+}
+
+button {
+    background: linear-gradient(45deg, #1a73e8, #4285f4, #34a853, #1a73e8);
+    background-size: 300% 300%;
+    animation: buttonGradient 8s ease infinite;
+    color: white;
+    border: none;
+    padding: 1.3rem 2.8rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    box-shadow: 
+        0 8px 20px rgba(26, 115, 232, 0.2),
+        0 4px 12px rgba(66, 133, 244, 0.15);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Heebo', sans-serif;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    transform: rotate(45deg);
+    animation: buttonShine 3s linear infinite;
+}
+
+@keyframes buttonShine {
+    0% {
+        transform: translateX(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(45deg);
+    }
+}
+
+.results {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(165deg, #ffffff 0%, #f8f9fa 100%);
+    border: 2px solid rgba(66, 133, 244, 0.15);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(66, 133, 244, 0.08);
+    transition: all 0.3s ease;
+}
+
+.results:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.results h2 {
+    color: #1a73e8;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.results p {
+    background: linear-gradient(45deg, rgba(66, 133, 244, 0.05), rgba(52, 168, 83, 0.05));
+    border-radius: 12px;
+    margin: 1rem 0;
+    padding: 1.2rem 1.5rem;
+    border-right: 4px solid #4285f4;
+    transition: all 0.4s ease;
+}
+
+.results p:hover {
+    background: linear-gradient(45deg, rgba(66, 133, 244, 0.08), rgba(52, 168, 83, 0.08));
+    transform: translateX(-5px);
+}
+
+.results p span {
+    font-weight: 600;
+    background: linear-gradient(45deg, #1a73e8, #34a853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#chart {
+    margin-top: 3rem;
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    padding: 1.5rem;
+    background: linear-gradient(165deg, #ffffff, #f8f9fa);
+    border: 2px solid rgba(66, 133, 244, 0.15);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(66, 133, 244, 0.08);
+    transition: all 0.3s ease;
+}
+
+#error {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    display: none;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.calculator-container {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.example-button {
+    margin-top: 2rem;
+    background: linear-gradient(45deg, #fbbc05, #ea4335, #4285f4);
+    margin-bottom: 1rem;
+}
+
+.example-card {
+    margin: 2rem 0;
+    padding: 2.5rem;
+    background: linear-gradient(165deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    box-shadow: 
+        0 15px 35px rgba(0,0,0,0.08),
+        0 5px 15px rgba(66, 133, 244, 0.08);
+    border: 2px solid rgba(66, 133, 244, 0.15);
+}
+
+.example-card h3 {
+    color: #1a73e8;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 1.3rem;
+    font-family: 'Heebo', sans-serif;
+}
+
+.example-content {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(45deg, rgba(66, 133, 244, 0.05), rgba(52, 168, 83, 0.05));
+    border-radius: 15px;
+    border-right: 4px solid #4285f4;
+}
+
+.button-icon {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+.example-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.apply-button {
+    background: linear-gradient(45deg, #34a853, #1a73e8);
+    width: auto;
+    padding: 0.8rem 1.5rem;
+    margin-top: 1rem;
+}
+
+.calculator-container::before,
+.calculator-container::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.calculator-container::before {
+    top: -100px;
+    right: -100px;
+    background: radial-gradient(circle, rgba(66, 133, 244, 0.1), transparent 70%);
+    animation: floatBubble 8s ease-in-out infinite;
+}
+
+.calculator-container::after {
+    bottom: -100px;
+    left: -100px;
+    background: radial-gradient(circle, rgba(52, 168, 83, 0.1), transparent 70%);
+    animation: floatBubble 8s ease-in-out infinite reverse;
+}
+
+@keyframes floatBubble {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -10px); }
+    100% { transform: translate(0, 0); }
+}
+
+.whatsapp-section {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    text-align: center;
+    background: linear-gradient(165deg, #ffffff, #f8f9fa);
+    border-radius: 20px;
+    border: 2px solid rgba(37, 211, 102, 0.15);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(37, 211, 102, 0.08);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(37, 211, 102, 0.15);
+}
+
+.whatsapp-title {
+    color: #075e54;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.whatsapp-description {
+    color: #4a4a4a;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #25d366, #128c7e);
+    color: white;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 8px 20px rgba(37, 211, 102, 0.2),
+        0 4px 12px rgba(37, 211, 102, 0.15);
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 12px 25px rgba(37, 211, 102, 0.25),
+        0 8px 15px rgba(37, 211, 102, 0.2);
+}
+
+.whatsapp-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 12px;
+    fill: white;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.whatsapp-button {
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-steps {
+    max-width: 400px;
+    margin: 2rem auto;
+    text-align: right;
+    background: rgba(37, 211, 102, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.whatsapp-steps li {
+    margin-bottom: 1rem;
+    list-style: none;
+    position: relative;
+    padding-right: 30px;
+    color: #075e54;
+}
+
+.whatsapp-steps li:before {
+    content: '✓';
+    position: absolute;
+    right: 0;
+    color: #25d366;
+    font-weight: bold;
+}
+
+.info-section {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(165deg, #ffffff, #f8f9fa);
+    border-radius: 25px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 10px 30px rgba(66, 133, 244, 0.08);
+}
+
+.info-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a73e8;
+    margin-bottom: 2rem;
+    background: linear-gradient(45deg, #1a73e8, #34a853);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.info-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    margin: 2rem 0;
+    border: 1px solid rgba(66, 133, 244, 0.15);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(66, 133, 244, 0.1);
+}
+
+.highlight-card {
+    background: linear-gradient(145deg, #1a73e8, #4285f4);
+    color: white;
+}
+
+.highlight-card h3, .highlight-card .info-icon {
+    color: white;
+}
+
+.info-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(66, 133, 244, 0.15);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(66, 133, 244, 0.1);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.info-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-card ul li {
+    margin: 1rem 0;
+    padding-right: 2rem;
+    position: relative;
+}
+
+.info-card ul li::before {
+    content: '✓';
+    position: absolute;
+    right: 0;
+    color: #34a853;
+    font-weight: bold;
+}
+
+.highlight-card ul li::before {
+    color: white;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.feature-card {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="logo-container">
+        <iframe loading="lazy" 
+            src="https://www.canva.com/design/DAGL1dcNcgw/oqDDaHV0vfXN64RLb9YLmg/view?embed" 
+            allowfullscreen="allowfullscreen" 
+            allow="fullscreen">
+        </iframe>
+    </div>
+    
+    <div class="calculator-container">
+        <h1>מחשבון ריבית דריבית - קופת גמל להשקעה</h1>
+        
+        <div class="input-group">
+            <label>סכום השקעה התחלתי</label>
+            <input type="number" id="initialInvestment" min="0" value="10000">
+            <div class="error" id="initialInvestmentError">אנא הכנס סכום תקין</div>
+        </div>
+
+        <div class="input-group">
+            <label>הפקדה חודשית</label>
+            <input type="number" id="monthlyDeposit" min="0" value="1000">
+            <div class="error" id="monthlyDepositError">אנא הכנס סכום תקין</div>
+        </div>
+
+        <div class="input-group">
+            <label>תשואה שנתית צפויה (%)</label>
+            <input type="number" id="interestRate" min="0" max="20" step="0.1" value="6">
+            <div class="error" id="interestRateError">אנא הכנס אחוז תשואה בין 0 ל-20</div>
+        </div>
+
+        <div class="input-group">
+            <label>תקופת השקעה (בשנים)</label>
+            <input type="number" id="years" min="1" max="40" value="10">
+            <div class="error" id="yearsError">אנא הכנס מספר שנים בין 1 ל-40</div>
+        </div>
+
+        <button onclick="calculateInvestment()">חשב תוצאות</button>
+
+        <button onclick="generateExample()" class="example-button">
+            <span class="button-icon">💡</span>
+            קבל רעיון להשקעה
+        </button>
+
+        <div class="example-card" id="exampleCard" style="display: none;">
+            <h3>דוגמת השקעה</h3>
+            <div class="example-content" id="exampleContent"></div>
+            <div class="example-actions">
+                <button onclick="applyExample()" class="apply-button">
+                    <span class="button-icon">✓</span>
+                    החל דוגמה זו
+                </button>
+            </div>
+        </div>
+
+        <div class="results" id="results">
+            <h2>תוצאות החישוב</h2>
+            <p>סך ההפקדות: <span id="totalDeposits">0</span> ₪</p>
+            <p>סך הרווחים: <span id="totalProfit">0</span> ₪</p>
+            <p>סך הכל בסוף התקופה: <span id="totalAmount">0</span> ₪</p>
+        </div>
+
+        <canvas id="chart"></canvas>
+
+        <div class="info-section">
+            <h2 class="info-title">מידע חשוב על קופת גמל להשקעה</h2>
+            
+            <div class="info-card highlight-card">
+                <div class="info-icon">💰</div>
+                <h3>יתרונות עיקריים</h3>
+                <ul>
+                    <li>הפקדות חד פעמיות או חודשיות בסכומים גמישים</li>
+                    <li>תקרת הפקדה שנתית: 79,005 ₪</li>
+                    <li>אפשרות למשיכה בכל עת</li>
+                    <li>פטור ממס בקצבה לאחר גיל 60</li>
+                </ul>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h4>גמישות מלאה</h4>
+                    <p>אפשרות למשיכת הכספים בכל עת, באופן מלא או חלקי</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h4>ניהול השקעות</h4>
+                    <p>מגוון מסלולי השקעה עם אפשרות לשינוי בכל עת</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h4>הצטרפות דיגיטלית</h4>
+                    <p>הליך הצטרפות מהיר ופשוט תוך מספר דקות</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h4>גמישות במשיכה</h4>
+                    <p>אפשרות למשיכה דיגיטלית מהירה ופשוטה</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <div class="info-icon">📊</div>
+                <h3>נתונים מעניינים</h3>
+                <p>כ-35 מיליארד שקלים מנוהלים בקופות גמל להשקעה בישראל</p>
+                <p>המוצר הושק בנובמבר 2016 ומאז צובר פופולריות</p>
+            </div>
+        </div>
+
+        <div class="whatsapp-section">
+            <h2 class="whatsapp-title">רוצה לדבר על ההשקעה שלך?</h2>
+            <p class="whatsapp-description">נשמח לעזור לך לתכנן את עתידך הפיננסי באופן מיטבי</p>
+            
+            <ul class="whatsapp-steps">
+                <li>פנייה מהירה ונוחה בוואטסאפ</li>
+                <li>קבלת מענה מקצועי ואישי</li>
+                <li>ליווי בתהליך ההשקעה</li>
+            </ul>
+
+            <a href="https://wa.me/972545425189?text=היי, אשמח לשמוע על אפשרויות השקעה" 
+               target="_blank" 
+               class="whatsapp-button">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"/>
+                </svg>
+                רוצה להשקיע? לחץ כאן
+            </a>
+        </div>
+    </div>
+
+<script>
+let myChart = null;
+
+const investmentExamples = [
+    {
+        title: "חיסכון לילדים - התחלה מוקדמת",
+        description: "הפקדה לטווח ארוך עבור ילד/ה מגיל צעיר",
+        values: {
+            initialInvestment: 10000,
+            monthlyDeposit: 500,
+            interestRate: 6,
+            years: 18
+        }
+    },
+    {
+        title: "חיסכון לדירה - תוכנית אגרסיבית",
+        description: "תוכנית חיסכון אינטנסיבית לרכישת דירה",
+        values: {
+            initialInvestment: 50000,
+            monthlyDeposit: 3000,
+            interestRate: 7,
+            years: 10
+        }
+    },
+    {
+        title: "פנסיה משלימה - תכנון ארוך טווח",
+        description: "הגדלת החיסכון הפנסיוני באמצעות קופת גמל להשקעה",
+        values: {
+            initialInvestment: 70000,
+            monthlyDeposit: 1500,
+            interestRate: 5.5,
+            years: 25
+        }
+    },
+    {
+        title: "חיסכון לטווח בינוני - איזון מושלם",
+        description: "תוכנית מאוזנת המשלבת תשואה וסיכון סביר",
+        values: {
+            initialInvestment: 25000,
+            monthlyDeposit: 1000,
+            interestRate: 5,
+            years: 8
+        }
+    }
+];
+
+function generateExample() {
+    const example = investmentExamples[Math.floor(Math.random() * investmentExamples.length)];
+    const exampleCard = document.getElementById('exampleCard');
+    const exampleContent = document.getElementById('exampleContent');
+    
+    exampleContent.innerHTML = `
+        <h4 style="color: #4285f4; margin-bottom: 1rem;">${example.title}</h4>
+        <p style="margin-bottom: 1rem;">${example.description}</p>
+        <div style="background: rgba(66, 133, 244, 0.05); padding: 1rem; border-radius: 8px;">
+            <p>💰 השקעה התחלתית: ${example.values.initialInvestment.toLocaleString()} ₪</p>
+            <p>📅 הפקדה חודשית: ${example.values.monthlyDeposit.toLocaleString()} ₪</p>
+            <p>📈 תשואה צפויה: ${example.values.interestRate}%</p>
+            <p>⏳ תקופת השקעה: ${example.values.years} שנים</p>
+        </div>
+    `;
+    
+    exampleCard.style.display = 'block';
+    
+    // Store current example for later use
+    window.currentExample = example.values;
+}
+
+function applyExample() {
+    if (!window.currentExample) return;
+    
+    const { initialInvestment, monthlyDeposit, interestRate, years } = window.currentExample;
+    
+    // Apply values with animation
+    document.getElementById('initialInvestment').value = initialInvestment;
+    document.getElementById('monthlyDeposit').value = monthlyDeposit;
+    document.getElementById('interestRate').value = interestRate;
+    document.getElementById('years').value = years;
+    
+    // Trigger calculation
+    calculateInvestment();
+    
+    // Scroll to results
+    document.querySelector('.results').scrollIntoView({ behavior: 'smooth' });
+}
+
+function validateInputs() {
+    let isValid = true;
+    const inputs = {
+        initialInvestment: document.getElementById('initialInvestment'),
+        monthlyDeposit: document.getElementById('monthlyDeposit'),
+        interestRate: document.getElementById('interestRate'),
+        years: document.getElementById('years')
+    };
+
+    // Reset errors
+    Object.keys(inputs).forEach(key => {
+        document.getElementById(`${key}Error`).style.display = 'none';
+        inputs[key].style.borderColor = '#e0e0e0';
+    });
+
+    if (inputs.initialInvestment.value < 0) {
+        document.getElementById('initialInvestmentError').style.display = 'block';
+        inputs.initialInvestment.style.borderColor = '#dc3545';
+        isValid = false;
+    }
+
+    if (inputs.monthlyDeposit.value < 0) {
+        document.getElementById('monthlyDepositError').style.display = 'block';
+        inputs.monthlyDeposit.style.borderColor = '#dc3545';
+        isValid = false;
+    }
+
+    if (inputs.interestRate.value < 0 || inputs.interestRate.value > 20) {
+        document.getElementById('interestRateError').style.display = 'block';
+        inputs.interestRate.style.borderColor = '#dc3545';
+        isValid = false;
+    }
+
+    if (inputs.years.value < 1 || inputs.years.value > 40) {
+        document.getElementById('yearsError').style.display = 'block';
+        inputs.years.style.borderColor = '#dc3545';
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+function calculateInvestment() {
+    if (!validateInputs()) return;
+
+    const initialInvestment = parseFloat(document.getElementById('initialInvestment').value);
+    const monthlyDeposit = parseFloat(document.getElementById('monthlyDeposit').value);
+    const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+    const years = parseInt(document.getElementById('years').value);
+
+    let totalAmount = initialInvestment;
+    const monthlyRate = interestRate / 12;
+    const totalMonths = years * 12;
+
+    const yearlyData = [];
+    let currentYear = {
+        year: 0,
+        amount: initialInvestment,
+        deposits: initialInvestment,
+        profit: 0
+    };
+
+    for (let month = 1; month <= totalMonths; month++) {
+        totalAmount = (totalAmount + monthlyDeposit) * (1 + monthlyRate);
+        
+        if (month % 12 === 0) {
+            yearlyData.push({
+                year: month / 12,
+                amount: totalAmount,
+                deposits: initialInvestment + (monthlyDeposit * month),
+                profit: totalAmount - (initialInvestment + (monthlyDeposit * month))
+            });
+        }
+    }
+
+    const totalDeposits = initialInvestment + (monthlyDeposit * totalMonths);
+    const totalProfit = totalAmount - totalDeposits;
+
+    // Update results with animation
+    animateValue('totalDeposits', 0, Math.round(totalDeposits), 1000);
+    animateValue('totalProfit', 0, Math.round(totalProfit), 1000);
+    animateValue('totalAmount', 0, Math.round(totalAmount), 1000);
+
+    // Update chart
+    updateChart(yearlyData);
+}
+
+function animateValue(elementId, start, end, duration) {
+    const element = document.getElementById(elementId);
+    const range = end - start;
+    const increment = range / (duration / 16);
+    let current = start;
+    
+    const animate = () => {
+        current += increment;
+        if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+            element.textContent = Math.round(end).toLocaleString();
+        } else {
+            element.textContent = Math.round(current).toLocaleString();
+            requestAnimationFrame(animate);
+        }
+    };
+    
+    animate();
+}
+
+function updateChart(yearlyData) {
+    const ctx = document.getElementById('chart').getContext('2d');
+    
+    if (myChart) {
+        myChart.destroy();
+    }
+
+    const gradientFill1 = ctx.createLinearGradient(0, 0, 0, 400);
+    gradientFill1.addColorStop(0, 'rgba(26, 115, 232, 0.5)');
+    gradientFill1.addColorStop(1, 'rgba(26, 115, 232, 0.1)');
+    
+    const gradientFill2 = ctx.createLinearGradient(0, 0, 0, 400);
+    gradientFill2.addColorStop(0, 'rgba(52, 168, 83, 0.5)');
+    gradientFill2.addColorStop(1, 'rgba(52, 168, 83, 0.1)');
+
+    myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: yearlyData.map(data => `שנה ${data.year}`),
+            datasets: [
+                {
+                    label: 'סך הכל',
+                    data: yearlyData.map(data => data.amount),
+                    borderColor: '#1a73e8',
+                    backgroundColor: gradientFill1,
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: '#1a73e8',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                },
+                {
+                    label: 'סך ההפקדות',
+                    data: yearlyData.map(data => data.deposits),
+                    borderColor: '#34a853',
+                    backgroundColor: gradientFill2,
+                    fill: true,
+                    tension: 0.4,
+                    borderWidth: 3,
+                    pointBackgroundColor: '#ffffff',
+                    pointBorderColor: '#34a853',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        usePointStyle: true,
+                        padding: 20,
+                        font: {
+                            size: 14,
+                            weight: '600',
+                            family: 'Heebo'
+                        }
+                    }
+                },
+                tooltip: {
+                    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                    titleColor: '#1a73e8',
+                    bodyColor: '#2c3e50',
+                    borderColor: 'rgba(66, 133, 244, 0.2)',
+                    borderWidth: 1,
+                    padding: 12,
+                    boxPadding: 6,
+                    usePointStyle: true,
+                    titleFont: {
+                        family: 'Heebo',
+                        size: 14,
+                        weight: '600'
+                    },
+                    bodyFont: {
+                        family: 'Heebo',
+                        size: 13
+                    }
+                }
+            },
+            interaction: {
+                intersect: false,
+                mode: 'index'
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: 'rgba(0,0,0,0.05)',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        callback: function(value) {
+                            return '₪' + value.toLocaleString();
+                        },
+                        font: {
+                            family: 'Heebo',
+                            size: 12
+                        },
+                        padding: 10
+                    }
+                },
+                x: {
+                    grid: {
+                        color: 'rgba(0,0,0,0.05)',
+                        drawBorder: false
+                    },
+                    ticks: {
+                        font: {
+                            family: 'Heebo',
+                            size: 12
+                        },
+                        padding: 10
+                    }
+                }
+            },
+            animation: {
+                duration: 2000,
+                easing: 'easeInOutQuart'
+            }
+        }
+    });
+}
+
+// Initial calculation
+calculateInvestment();
+</script>
+</body></html>
